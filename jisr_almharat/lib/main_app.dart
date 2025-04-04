@@ -21,7 +21,7 @@ class MainApp extends StatelessWidget {
           ),
           debugShowCheckedModeBanner: false,
           // initialRoute: isLoggedInUser ? Routes.homeScreen : Routes.loginScreen,
-          initialRoute: Routes.homeView,
+          initialRoute: Routes.loginScreen,
           onGenerateRoute: appRouter.generateRoute,
         ));
   }

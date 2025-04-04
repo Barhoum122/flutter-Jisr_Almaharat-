@@ -39,7 +39,7 @@ class DrawerVeiw extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       InkWell(
-                        child: RoundedCornerWithIcons(
+                        child: CustomTagWiteIcon(
                           doubleHorizontal: 8,
                           doubleVertical: 8,
                           icons: Icons.exit_to_app,
@@ -109,7 +109,8 @@ class DrawerVeiw extends StatelessWidget {
           ),
           onTap: () {
             // Handle the tap
-            context.pushNamed(Routes.companyProfileView); // Close the drawer
+            context.pushReplacementNamed(
+                Routes.companyProfileView); // Close the drawer
           },
         ),
         ListTile(

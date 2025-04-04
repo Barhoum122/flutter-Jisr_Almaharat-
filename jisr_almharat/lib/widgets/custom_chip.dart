@@ -20,10 +20,10 @@ class CustomChip extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(right: 8.w),
       child: ActionChip(
-        padding: EdgeInsets.all(6.w),
+        padding: EdgeInsets.all(6),
         label: Text(title),
         labelStyle: TextStyle(
-          fontSize: 15.sp,
+          fontSize: 15,
           fontWeight: FontWeight.w500,
           color: isActive ? ColorsManager.whiteColor : ColorsManager.blackColor,
         ),

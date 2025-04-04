@@ -1,67 +1,37 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'package:jisr_almharat/core/helpers/extensions.dart';
-
 import 'package:jisr_almharat/core/theming/colors.dart';
-import 'package:jisr_almharat/widgets/custom_tag.dart';
-import 'package:jisr_almharat/widgets/custom_tagwite_icon.dart';
+import 'package:jisr_almharat/features/home/data/model/all_jobs_model.dart';
+import 'package:jisr_almharat/widgets/custom_Tag_With_Icon_And_Title.dart';
 
 import '../../../../../../core/theming/styles.dart';
 import '../../../../core/helpers/spacing.dart';
 
 class Headerdetals extends StatelessWidget {
-  const Headerdetals({
-    super.key,
-  });
-
+  Headerdetals({super.key, required this.jobDetails});
+  late Job jobDetails;
   @override
   Widget build(BuildContext context) {
     return Container(
       // padding: const EdgeInsets.all(10),
       // Padding inside the card
+      height: 160,
       decoration: BoxDecoration(
         color: ColorsManager.mainBlue,
       ),
       child: Stack(
         children: [
           SvgPicture.asset(
-            'assets/svgs/header_bg.svg', // Path to your SVG file
+            'assets/svgs/header_bg.svg',
             fit: BoxFit.cover,
-            height: 260.h,
           ),
           Column(
             // Align content to the left
             children: [
-              // begin This secton header
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     // this class give me the round corner wite icons
-              //     InkWell(
-              //       child: const RoundedCornerWithIcons(
-              //         doubleHorizontal: 8,
-              //         doubleVertical: 5,
-              //         icons: Icons.arrow_back_ios,
-              //       ),
-              //       onTap: () {
-              //         context.pop();
-              //       },
-              //     ),
-              //     Text(
-              //       "Details",
-              //       style: TextStyles.font16WhiteMediumWithHight,
-              //     ),
-              //     // this class give me the round corner wite icons
-              //     RoundedCornerWithIcons(
-              //       doubleHorizontal: 8,
-              //       doubleVertical: 5,
-              //       icons: Icons.shop_2,
-              //     ),
-              //   ],
-              //   // End This secton header
-              // ),
               verticalSpace(30),
               // Spacing between header and title
               Container(
@@ -76,14 +46,14 @@ class Headerdetals extends StatelessWidget {
                           text: TextSpan(
                             style: TextStyles.font24WhiteBold,
                             children: [
-                              TextSpan(text: " UI/UX Designer"),
+                              TextSpan(text: " ${jobDetails.jopTitle}"),
                               TextSpan(
-                                text: '\n at ',
+                                text: '\n  at ',
                                 style: TextStyles.font16WhiteMediumWithHight,
                               ),
                               TextSpan(
-                                text: ' ProSite ',
-                                style: TextStyles.font16WhiteMediumWithHight,
+                                text: ' ${jobDetails.organizationName} ',
+                                style: TextStyles.font16WhiteMedium,
                               ),
                             ],
                           ),
@@ -102,36 +72,36 @@ class Headerdetals extends StatelessWidget {
                   children: [
                     // Full Time Label
 
-                    CustomTag(
+                    CustomTagWithIconAndTitle(
                       title: "On Site",
                       icon: Icons.sticky_note_2,
                       backgroundColor: Colors.white.withOpacity(0.15),
-                      titleColor: ColorsManager.backgroundColor,
+                      styletitle: TextStyles.font12whiteSmale,
                     ),
 
-                    CustomTag(
-                      title: "Full Time ",
+                    CustomTagWithIconAndTitle(
+                      title: "${jobDetails.jopType} ",
                       icon: Icons.work_history,
                       backgroundColor: Colors.white.withOpacity(0.15),
-                      titleColor: ColorsManager.backgroundColor,
+                      styletitle: TextStyles.font12whiteSmale,
                     ),
 
-                    CustomTag(
+                    CustomTagWithIconAndTitle(
                       title: "Sana`a",
                       icon: Icons.location_history_sharp,
                       backgroundColor: Colors.white.withOpacity(0.15),
-                      titleColor: ColorsManager.backgroundColor,
+                      styletitle: TextStyles.font12whiteSmale,
                     ),
                   ],
                 ),
               ),
-              verticalSpace(20),
-              Center(
-                child: Text(
-                  "3 days left",
-                  style: TextStyles.font14whiteBlueMedium,
-                ),
-              ),
+              // verticalSpace(20),
+              // Center(
+              //   child: Text(
+              //     "3 days left",
+              //     style: TextStyles.font14whiteBlueMedium,
+              //   ),
+              // ),
               // verticalSpace(5),
             ],
           ),

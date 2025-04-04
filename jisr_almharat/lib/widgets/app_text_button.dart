@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jisr_almharat/core/theming/colors.dart';
 
-
-
 class AppTextButton extends StatelessWidget {
   final double? borderRadius;
   final Color? backgroundColor;
@@ -46,7 +44,7 @@ class AppTextButton extends StatelessWidget {
           ),
         ),
         fixedSize: WidgetStateProperty.all(
-          Size(buttonWidth?.w ?? double.maxFinite, buttonHeight ?? 50.h),
+          Size(buttonWidth?.w ?? double.maxFinite, buttonHeight?.h ?? 50.h),
         ),
       ),
       onPressed: onPressed,

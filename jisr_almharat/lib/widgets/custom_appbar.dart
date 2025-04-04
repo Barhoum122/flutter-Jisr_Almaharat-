@@ -33,7 +33,7 @@ class CustomAppBar extends StatelessWidget {
         leading: leading,
         title: titleWidget ??
             (title != null
-                ? Text(title!, style: TextStyles.font14blacRegular)
+                ? Text(title!, style: TextStyles.font16DarkBold)
                 : null),
         centerTitle: true,
         actions: actions,

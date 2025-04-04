@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jisr_almharat/core/theming/colors.dart';
 
-class RoundedCornerWithIcons extends StatelessWidget {
-  const RoundedCornerWithIcons(
+class CustomTagWiteIcon extends StatelessWidget {
+  const CustomTagWiteIcon(
       {super.key,
       required this.doubleHorizontal,
       required this.doubleVertical,

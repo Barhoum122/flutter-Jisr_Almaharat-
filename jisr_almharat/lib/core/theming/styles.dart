@@ -54,6 +54,11 @@ class TextStyles {
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.gray,
   );
+  static TextStyle font14ReadRegular = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: const Color.fromARGB(255, 255, 3, 3),
+  );
 
   static TextStyle font12GrayRegular = TextStyle(
     fontSize: 12.sp,

@@ -6,9 +6,7 @@ import '../../../../../../core/theming/styles.dart';
 import '../../../../core/helpers/spacing.dart';
 
 class LogoAndTitle extends StatelessWidget {
-  const LogoAndTitle({
-    super.key,
-  });
+  const LogoAndTitle({super.key});
 
   @override
   Widget build(BuildContext context) {

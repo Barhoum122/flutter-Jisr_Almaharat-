@@ -6,16 +6,19 @@ import 'package:jisr_almharat/core/theming/styles.dart';
 import 'package:jisr_almharat/widgets/custom_tagwite_icon.dart';
 
 class CustomsAppBar extends StatelessWidget {
-  const CustomsAppBar(
-      {super.key,
-      required this.tatle,
-      this.iconData,
-      this.horizontalspace,
-      this.colorwithOpacity});
+  const CustomsAppBar({
+    super.key,
+    required this.tatle,
+    this.iconData,
+    this.horizontalspace,
+    this.colorwithOpacity,
+    this.onPressed,
+  });
   final String tatle;
   final IconData? iconData;
   final double? horizontalspace;
   final Color? colorwithOpacity;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,25 +31,32 @@ class CustomsAppBar extends StatelessWidget {
         children: [
           // this class give me the round corner wite icons
           InkWell(
-            child: const RoundedCornerWithIcons(
+            onTap: onPressed ??
+                () {
+                  context.pop();
+                },
+            child: CustomTagWiteIcon(
               doubleHorizontal: 8,
               doubleVertical: 8,
               icons: Icons.arrow_back_ios,
             ),
-            onTap: () {
-              context.pop();
-            },
           ),
           // horizontalSpace(80),
           Text(
             tatle,
             style: TextStyles.font16WhiteMedium,
           ),
-          RoundedCornerWithIcons(
-            doubleHorizontal: 8,
-            doubleVertical: 8,
-            colorwithOpacity: colorwithOpacity ?? Colors.blue,
-            icons: iconData,
+          InkWell(
+            onTap: onPressed ??
+                () {
+                  context.pop();
+                },
+            child: CustomTagWiteIcon(
+              doubleHorizontal: 8,
+              doubleVertical: 8,
+              colorwithOpacity: colorwithOpacity ?? Colors.blue,
+              icons: iconData,
+            ),
           ),
         ],
         // End This secton header

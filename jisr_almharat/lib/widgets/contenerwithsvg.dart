@@ -33,7 +33,7 @@ class Contenerwithsvg extends StatelessWidget {
               children: [
                 // this class give me the round corner wite icons
                 InkWell(
-                  child: const RoundedCornerWithIcons(
+                  child: const CustomTagWiteIcon(
                     doubleHorizontal: 8,
                     doubleVertical: 5,
                     icons: Icons.arrow_back_ios,
@@ -47,7 +47,7 @@ class Contenerwithsvg extends StatelessWidget {
                   style: TextStyles.font16WhiteMediumWithHight,
                 ),
                 // this class give me the round corner wite icons
-                RoundedCornerWithIcons(
+                CustomTagWiteIcon(
                   doubleHorizontal: 8,
                   doubleVertical: 5,
                   icons: Icons.shop_2,
