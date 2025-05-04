@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:jisr_almharat/core/helpers/extensions.dart';
 import 'package:jisr_almharat/core/theming/colors.dart';
 import 'package:jisr_almharat/features/companyProfile/veiw/widgets/body.dart';
+import 'package:jisr_almharat/features/login/data/module/api_LoginResponse.dart';
 import 'package:jisr_almharat/widgets/customs_appbar.dart';
 
-import '../../../core/routing/routes.dart';
-
 class CompanyProfileView extends StatelessWidget {
-  const CompanyProfileView({Key? key}) : super(key: key);
+  late ApiLoginresponse userData;
+
+  CompanyProfileView({required this.userData, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +20,17 @@ class CompanyProfileView extends StatelessWidget {
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: CustomsAppBar(
           tatle: "Company Profile",
-          onPressed: () {
-            context.pushReplacementNamed(Routes.homeView);
+          onPressedleft: () {
+            context.pop();
           },
+          iconData: Icons.edit,
+          colorwithOpacity: Colors.white.withOpacity(0.15),
         ),
       ),
 
-      body: const Body(),
+      body: Body(
+        userData: userData,
+      ),
     );
   }
 }

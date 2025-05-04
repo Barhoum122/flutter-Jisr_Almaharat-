@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:jisr_almharat/core/theming/colors.dart';
-import 'package:jisr_almharat/features/home/data/model/all_jobs_model.dart';
+import 'package:jisr_almharat/features/home/data/model/training_jobs_model.dart';
 import 'package:jisr_almharat/widgets/custom_Tag_With_Icon_And_Title.dart';
 
 import '../../../../../../core/theming/styles.dart';
@@ -19,7 +19,7 @@ class Headerdetals extends StatelessWidget {
     return Container(
       // padding: const EdgeInsets.all(10),
       // Padding inside the card
-      height: 160,
+      height: 200,
       decoration: BoxDecoration(
         color: ColorsManager.mainBlue,
       ),

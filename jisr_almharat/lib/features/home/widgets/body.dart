@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jisr_almharat/core/theming/styles.dart';
-import 'package:jisr_almharat/features/home/data/model/all_jobs_model.dart';
+import 'package:jisr_almharat/features/home/data/model/training_jobs_model.dart';
 import 'package:jisr_almharat/features/home/widgets/cls_Category_List.dart';
 import 'package:jisr_almharat/features/home/widgets/TrainingCard.dart';
 import 'package:jisr_almharat/features/home/widgets/recent_Jobs_List.dart';
@@ -21,10 +22,13 @@ class Body extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CategoryList(),
+            CategoryList(
+              allJobs: allJobs,
+              allTraining: allTraining,
+            ),
             SizedBox(height: 16.h),
             // Begine section for Featured Trining
-            Text("Featured Jobs", style: TextStyles.font16DarkBold),
+            Text("Recent Training", style: TextStyles.font16DarkBold),
             SizedBox(height: 10.h),
 
             TrainingCard(

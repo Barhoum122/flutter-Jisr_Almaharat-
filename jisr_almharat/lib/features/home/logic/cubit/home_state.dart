@@ -1,4 +1,4 @@
-import 'package:jisr_almharat/features/home/data/model/all_jobs_model.dart';
+import 'package:jisr_almharat/features/home/data/model/training_jobs_model.dart';
 
 abstract class DataState {}
 

@@ -12,13 +12,13 @@ class CustomsAppBar extends StatelessWidget {
     this.iconData,
     this.horizontalspace,
     this.colorwithOpacity,
-    this.onPressed,
+    this.onPressedleft,
   });
   final String tatle;
   final IconData? iconData;
   final double? horizontalspace;
   final Color? colorwithOpacity;
-  final void Function()? onPressed;
+  final void Function()? onPressedleft;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,23 +31,23 @@ class CustomsAppBar extends StatelessWidget {
         children: [
           // this class give me the round corner wite icons
           InkWell(
-            onTap: onPressed ??
-                () {
-                  context.pop();
-                },
+            onTap: () {
+              context.pop();
+            },
             child: CustomTagWiteIcon(
               doubleHorizontal: 8,
               doubleVertical: 8,
               icons: Icons.arrow_back_ios,
             ),
           ),
+
           // horizontalSpace(80),
           Text(
             tatle,
             style: TextStyles.font16WhiteMedium,
           ),
           InkWell(
-            onTap: onPressed ??
+            onTap: onPressedleft ??
                 () {
                   context.pop();
                 },

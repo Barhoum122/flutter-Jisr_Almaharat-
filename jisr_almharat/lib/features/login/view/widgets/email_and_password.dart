@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../widgets/app_text_form_field.dart';
-import 'password_validations.dart';
+import '../../logic/cubit/login_cubit.dart';
 
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({super.key});
@@ -22,7 +21,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   bool hasNumber = false;
   bool hasMinLength = false;
 
-  // late TextEditingController passwordController;
+  late TextEditingController passwordController;
 
   @override
   void initState() {
@@ -47,25 +46,23 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      // key: context.read<LoginCubit>().formKey,
+      key: context.read<LoginCubit>().formKey,
       child: Column(
         children: [
           AppTextFormField(
             hintText: 'Email',
             validator: (value) {
-              if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isEmailValid(value)) {
-                return 'Please enter a valid email';
+              if (value == null || value.isEmpty) {
+                return 'Please enter a valid Email';
               }
             },
             // controller: emailController,
-            // controller: context.read<LoginCubit>().emailController,
+            controller: context.read<LoginCubit>().usernameController,
           ),
           verticalSpace(18),
           AppTextFormField(
             // controller: passwordController,
-            // controller: context.read<LoginCubit>().passwordController,
+            controller: context.read<LoginCubit>().passwordController,
             hintText: 'Password',
             isObscureText: isObscureText,
             suffixIcon: GestureDetector(

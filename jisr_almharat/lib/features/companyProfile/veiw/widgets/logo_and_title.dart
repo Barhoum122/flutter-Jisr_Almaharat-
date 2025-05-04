@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:jisr_almharat/core/theming/colors.dart';
+import 'package:jisr_almharat/features/login/data/module/api_LoginResponse.dart';
 import '../../../../../../core/theming/styles.dart';
 import '../../../../core/helpers/spacing.dart';
 
 class LogoAndTitle extends StatelessWidget {
-  const LogoAndTitle({super.key});
+  late ApiLoginresponse userData;
+
+  LogoAndTitle({required this.userData, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,23 +32,23 @@ class LogoAndTitle extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               // mainAxisAlignment: MainAxisAlignment.,
               children: [
-                verticalSpace(33),
+                verticalSpace(50),
                 CircleAvatar(
-                  radius: 50.0,
+                  radius: 40.0,
                   // backgroundColor: ColorsManager.mainBlue,
                   // backgroundColor: const Color.fromARGB(255, 29, 110, 250),
                   child: Image.asset(
-                    "assets/images/client-1.png",
+                    "assets/images/client-2.png",
                   ),
                 ),
                 verticalSpace(10),
                 Text(
-                  "ProSite",
+                  "${userData.fullName}",
                   style: TextStyles.font16WhiteMedium,
                 ),
                 verticalSpace(3),
                 Text(
-                  "technologies",
+                  "Technologies",
                   style: TextStyles.font12whiteSmale,
                 ),
                 // verticalSpace(1400),

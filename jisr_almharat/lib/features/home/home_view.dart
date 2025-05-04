@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:jisr_almharat/features/home/data/model/all_jobs_model.dart';
+import 'package:jisr_almharat/features/home/data/model/training_jobs_model.dart';
 import 'package:jisr_almharat/features/home/logic/cubit/home_cubit.dart';
 import 'package:jisr_almharat/features/home/logic/cubit/home_state.dart';
+import 'package:jisr_almharat/features/sign_up/data/models/sign_up_response.dart';
 import 'package:jisr_almharat/widgets/custom_appbar.dart';
 import 'package:jisr_almharat/core/theming/colors.dart';
+import '../login/data/module/api_LoginResponse.dart';
 import 'widgets/body.dart';
 import 'widgets/drawer/drawer_veiw.dart';
 
 // import '../../widgets/custom_appbar.dart';
 
+// ignore: must_be_immutable
 class HomeView extends StatefulWidget {
-  const HomeView({super.key});
-
+  HomeView({super.key, required this.userData});
+  late ApiLoginresponse userData;
   @override
   State<HomeView> createState() => _HomeViewState();
 }
@@ -22,7 +25,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    // جلب البيانات تلقائيًا عند فتح الصفحة
+    // tuserDatahis. = user;
     context.read<HomeCubit>().fetchJobInfo();
   }
 
@@ -51,18 +54,12 @@ class _HomeViewState extends State<HomeView> {
               ),
             ),
             title: "JISR AL-MHARAT",
-            // actions: const [
-            //   Row(
-            //     crossAxisAlignment: CrossAxisAlignment.end,
-            //     children: [],
-            //   )
-            // ],
           ),
         ),
         drawer: Drawer(
           backgroundColor: ColorsManager.whiteColor,
           elevation: 20,
-          child: DrawerVeiw(),
+          child: DrawerVeiw(userData: widget.userData),
         ),
         body: BlocBuilder<HomeCubit, DataState>(
           builder: (context, state) {

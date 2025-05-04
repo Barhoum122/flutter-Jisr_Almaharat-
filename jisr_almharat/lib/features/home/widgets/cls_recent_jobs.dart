@@ -51,17 +51,26 @@ class RecentJobs extends StatelessWidget {
                           CircleAvatar(
                               radius: 27.0,
                               backgroundColor: ColorsManager.lightBlue,
-                              // child: Image.asset(
-                              //   imageUrl,
-                              // ),
-                              child: imageUrl == "http://127.0.0.1:8000"
-                                  ? Image.asset('assets/images/client-4.png')
-                                  : Image.network(
+                              child: imageUrl.contains("http://127.0.0.1:8000")
+                                  ? Image.network(
                                       imageUrl,
                                       height: 30,
                                       // width: double.infinity,
-                                      fit: BoxFit.cover,
-                                    )),
+                                      fit: BoxFit.fitWidth,
+                                    )
+                                  : Image.asset('assets/images/client-4.png')
+                              // child: Image.asset(
+                              //   imageUrl,
+                              // ),
+                              // child: imageUrl == "http://127.0.0.1:8000"
+                              //     ? Image.asset('assets/images/client-4.png')
+                              //     : Image.network(
+                              //         imageUrl,
+                              //         height: 30,
+                              //         // width: double.infinity,
+                              //         fit: BoxFit.cover,
+                              //       ),
+                              ),
 
                           SizedBox(height: 5.h),
                           const SizedBox(width: 10),

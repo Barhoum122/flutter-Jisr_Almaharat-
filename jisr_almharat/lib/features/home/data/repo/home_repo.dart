@@ -1,5 +1,5 @@
 import '../../../../core/networking/api_services.dart';
-import '../model/all_jobs_model.dart';
+import '../model/training_jobs_model.dart';
 
 class HomeRepo {
   late ApiService apiService;

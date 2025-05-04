@@ -1,8 +1,17 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:jisr_almharat/features/home/data/model/training_jobs_model.dart';
 
 extension Navigation on BuildContext {
-  Future<dynamic> pushNamed(String routeName, {Object? arguments}) {
-    return Navigator.of(this).pushNamed(routeName, arguments: arguments);
+  Future<dynamic> pushNamed(
+    String routeName, {
+    Object? arguments,
+    Object? argument,
+  }) {
+    return Navigator.of(this).pushNamed(
+      routeName,
+      arguments: arguments,
+    );
   }
 
   Future<dynamic> pushReplacementNamed(String routeName, {Object? arguments}) {

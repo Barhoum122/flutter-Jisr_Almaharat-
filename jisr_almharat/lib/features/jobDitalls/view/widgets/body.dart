@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:jisr_almharat/core/helpers/extensions.dart';
+import 'package:jisr_almharat/core/routing/routes.dart';
 import 'package:jisr_almharat/core/theming/colors.dart';
 import 'package:jisr_almharat/core/theming/styles.dart';
 import 'package:jisr_almharat/features/companyProfile/veiw/widgets/custom_Container_WiteTitleAndDescrption.dart';
-import 'package:jisr_almharat/features/home/data/model/all_jobs_model.dart';
+import 'package:jisr_almharat/features/home/data/model/training_jobs_model.dart';
 
 import 'package:jisr_almharat/features/jobDitalls/view/widgets/header.dart';
 import 'package:jisr_almharat/widgets/app_text_button.dart';
@@ -30,7 +32,7 @@ class Body extends StatelessWidget {
           CustomContainerWiteTitleAndDescrption(
             tital: "Reguirements",
             subtital:
-                "  • reload: 800 ms, reassemble\n  • reload: 100 ms, reassemble\n  • reload: 700 ms, reassemble",
+                " ● Strong background in DevOps methodologies \n ● Implement and advocate for SOLID principles\n ● Integrate with backend services and databases",
             iconData: Icons.check,
             titalstyle: TextStyles.font16DarkBlueBold,
             subtitalstyle: TextStyles.font14GrayRegular,
@@ -50,13 +52,17 @@ class Body extends StatelessWidget {
             subtitalstyle: TextStyles.font14ReadRegular,
           ),
           Container(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(15.0),
             child: AppTextButton(
               buttonText: "Apply Now",
               textStyle: TextStyles.font16WhiteMedium,
-              onPressed: () {},
-              // verticalPadding: 15.h,
-              buttonHeight: 50.h,
+              onPressed: () {
+                context.pushNamed(Routes.applicationView,
+                    arguments: jobDetails);
+              },
+              // verticalPadding: 15,
+              // horizontalPadding: 3,
+              buttonHeight: 60.h,
             ),
           )
         ],

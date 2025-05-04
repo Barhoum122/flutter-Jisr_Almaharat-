@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:jisr_almharat/core/helpers/extensions.dart';
-import 'package:jisr_almharat/core/routing/routes.dart';
 import 'package:jisr_almharat/core/theming/colors.dart';
-import 'package:jisr_almharat/features/home/data/model/all_jobs_model.dart';
+import 'package:jisr_almharat/features/home/data/model/training_jobs_model.dart';
 
 import '../../../core/theming/styles.dart';
 import '../../../widgets/custom_Tag_With_Icon_And_Title.dart';
@@ -21,12 +19,13 @@ class TrainingCard extends StatelessWidget {
         children: allTraining.take(3).map((training) {
           return InkWell(
             onTap: () {
-              context.pushNamed(Routes.jobDetailsView, arguments: training);
+              // context.pushNamed(Routes.jobDetailsView, arguments: training);
             },
             child: Card(
               elevation: 4, // Adds shadow to the card
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5), // Rounded corners
+                borderRadius: BorderRadius.circular(5),
+                // Rounded corners
               ),
               child: Container(
                 width: 350.w,
@@ -60,9 +59,14 @@ class TrainingCard extends StatelessWidget {
                           CircleAvatar(
                             radius: 22.0,
                             backgroundColor: Color.fromARGB(255, 240, 244, 252),
-                            child: Image.asset(
-                              'assets/images/client-2.png',
-                            ),
+                            child: training.imageUrl == "http://127.0.0.1:8000"
+                                ? Image.asset('assets/images/client-4.png')
+                                : Image.network(
+                                    training.imageUrl,
+                                    height: 30,
+                                    // width: double.infinity,
+                                    fit: BoxFit.contain,
+                                  ),
                           ),
 
                           const SizedBox(width: 5),
